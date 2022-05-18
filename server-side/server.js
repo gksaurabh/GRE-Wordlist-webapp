@@ -29,7 +29,7 @@ app.use((req,_,next)=> {
     next();
 });
 
-app.use("/flashcards", appRouter);
+app.use("/", appRouter);
 //Start the connection to the database
 mongoose.connect(config.db.host, {useNewUrlParser: true, useUnifiedTopology: true});
 
