@@ -1,10 +1,25 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import FlashcardList from "./FlashcardList";
+import axios from 'axios';
 import './app.css'
 
 
 function App() {
   const [flashcards, setFlashcards] = useState(SAMPLE_FLASHCARDS);
+
+  useEffect(() => {
+    axios.get('/rated-wordlist')
+    .then(res => { 
+      setFlashcards(res.data.map((wordItem, index)=>{
+        return {
+          id: `${index}-${Date.now}`,
+          word: wordItem.word,
+          definition: wordItem.definition
+        }
+      }))
+      console.log(res.data);
+    })
+  },[])
   return (
    <FlashcardList flashcards = {flashcards}/>
   );
