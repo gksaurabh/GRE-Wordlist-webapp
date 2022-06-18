@@ -4,6 +4,8 @@ const app = express();
 const path = require('path');
 const config = require('./db/config.js');
 
+app.use(express.static(path.join(__dirname + '/public')));
+
 let WordList = require("./db/models/wordsSchema.js");
 let DifficultWordList = require("./db/models/difficultWordsSchema.js");
 

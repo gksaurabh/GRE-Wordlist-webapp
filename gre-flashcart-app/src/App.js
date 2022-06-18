@@ -12,9 +12,16 @@ function App() {
   const [difficultyLevel, setDifficultyLevel] = useState([]);
 
   useEffect(() => {
-    axios.get('/rated-wordlist')
+    axios.get('/wordlist')
     .then(res => { 
       setDifficultyLevel(res.data.difficulty);
+      setFlashcards(res.data.map((wordItem, index)=>{
+        return {
+          id: `${index}-${Date.now}`,
+          word: wordItem.word,
+          definition: wordItem.definition
+        }
+      }))
     })
   },[])
 
