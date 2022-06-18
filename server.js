@@ -4,7 +4,6 @@ const app = express();
 const path = require('path');
 const config = require('./db/config.js');
 
-app.use(express.static(path.join(__dirname + '/public')));
 
 let WordList = require("./db/models/wordsSchema.js");
 let DifficultWordList = require("./db/models/difficultWordsSchema.js");
@@ -95,3 +94,7 @@ process.on('SIGINT', function() {
       process.exit(0);
     });
   });
+
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('gre-flashcart-app/build'));
+}
