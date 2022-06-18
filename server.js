@@ -11,8 +11,8 @@ let DifficultWordList = require("./db/models/difficultWordsSchema.js");
 
 const PORT = process.env.PORT || 8000;
 
-app.locals.wordList = require('../data-and-scripts/words.json');
-app.locals.difficultWordList = require('../data-and-scripts/words-difficulty.json');
+app.locals.wordList = require('./data-and-scripts/words.json');
+app.locals.difficultWordList = require('./data-and-scripts/words-difficulty.json');
 
 const appRouter = require("./routes/routes.js");
 
