@@ -1,7 +1,7 @@
 # GRE-Wordlist-webapp
 This application can be used as a tool to learn words for the GRE test. There are a total of 1310 words along with their definition. These flash cards can be used to better memorize or learn new words. I am currently working on building a tessting/quiz feature into this application. 
 
-Current Version of the app: [learnyourwords.netlify.app](www.learnyourwords.netlify.app)
+Current Version of the app: [www.learnyourwords.netlify.app](https://learnyourwords.netlify.app/)
 
 ## How to run the project locally
 1. First go to /backend and then run the following command
