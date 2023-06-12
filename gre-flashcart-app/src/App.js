@@ -12,7 +12,7 @@ function App() {
   const [difficultyLevel, setDifficultyLevel] = useState([]);
 
   useEffect(() => {
-    axios.get('https://learnyourwords-api.onrender.com/wordlist')
+    axios.get('/wordlist')
     .then(res => { 
       setDifficultyLevel(res.data.difficulty);
       setFlashcards(res.data.map((wordItem, index)=>{
@@ -31,7 +31,7 @@ function App() {
 
   function handleSubmit(e){
     e.preventDefault()
-    axios.get('https://learnyourwords-api.onrender.com/rated-wordlist/generate', {
+    axios.get('/rated-wordlist/generate', {
       params:{
         amount: amountE1.current.value,
         difficultyLevel: difficultyLevelE1.current.value
