@@ -12,7 +12,7 @@ function App() {
   const [difficultyLevel, setDifficultyLevel] = useState([]);
 
   useEffect(() => {
-    axios.get('https://learnyourwords-api.onrender.com//wordlist')
+    axios.get('https://learnyourwords-api.onrender.com/wordlist')
     .then(res => { 
       setDifficultyLevel(res.data.difficulty);
       setFlashcards(res.data.map((wordItem, index)=>{
