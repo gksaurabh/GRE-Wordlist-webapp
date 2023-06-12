@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const config = require('./db/config.js');
+var cors = require('cors')
+
+app.use(cors()) // Use this after the variable declaration
 
 
 let WordList = require("./db/models/wordsSchema.js");
