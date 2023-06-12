@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useRef} from "react";
 import FlashcardList from "./FlashcardList";
-import axios from 'axios';
-import axiosInstance from "./axios.js";
+import axios from './axios.js';
 import './app.css'
 
 
@@ -14,9 +13,10 @@ function App() {
   const [difficultyLevel, setDifficultyLevel] = useState([]);
 
   useEffect(() => {
-    axios.get('https://learnyourwords-api.onrender.com/wordlist')
+    axios.get('/wordlist')
     .then(res => { 
       console.log(res.request.responseURL)
+      console.log(res.data)
       setDifficultyLevel(res.data.difficulty);
       setFlashcards(res.data.map((wordItem, index)=>{
         return {
@@ -42,6 +42,7 @@ function App() {
 
     })
     .then(res => { 
+      console.log(res.request.responseURL)
       setFlashcards(res.data.map((wordItem, index)=>{
         return {
           id: `${index}-${Date.now}`,
